@@ -1,0 +1,51 @@
+// Exercise 1: Simple Array Sorting
+// Sort the 'numbers' array in ascending order
+// Sort the 'numbers' array in descending order
+
+const numbers = [10, 5, 8, 2, 1];
+
+// Clean approach
+// function sortNumbers(numbersArr) {
+//     return numbersArr.sort((a, b) => a - b);
+// };
+
+// bubble sort
+function sortNumbers(arr) {
+    for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+            }
+        }
+    }
+
+    return arr;
+};
+
+console.log(sortNumbers(numbers));
+
+// Exercise 2: Sorting an Array of Objects by a Property
+// Sort the 'students' array by age in ascending order
+
+const students = [
+    { name: 'Alice', age: 20 },
+    { name: 'Bob', age: 25 },
+    { name: 'Charlie', age: 18 }
+];
+
+function sortStudentsByAge(studentsArr) {
+    return [];
+};
+
+console.log(sortStudentsByAge(students));
+
+// Exercise 3: Custom Sorting Criteria
+// Sort the 'words' array based on the length of the words (shortest to longest)
+
+const words = ['apple', 'banana', 'cherry', 'date', 'elderberry'];
+
+function sortWordsByLength(wordsArr) {
+    return [];
+};
+
+console.log(sortWordsByLength(words));
