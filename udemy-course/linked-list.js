@@ -125,6 +125,32 @@ class LinkedList {
 
     return this.printList();
   }
+
+  reverse() {
+    if (!this.head.next) {
+      return this.head;
+    }
+
+    // [ 1, 10, 24, 5, 16 ]
+
+    let firtsNode = this.head; // = 1
+
+    this.tail = this.head;
+
+    let secondNode = firtsNode.next; // = 10
+
+    while (secondNode) {
+      const temp = secondNode.next; // = 24
+      secondNode.next = firtsNode;
+      firtsNode = secondNode; 
+      secondNode = temp; 
+    }
+
+    this.head.next = null;
+    this.head = firtsNode;
+
+    return this.printList();;
+  }
 }
 
 const myLinkedList = new LinkedList(10)
@@ -133,7 +159,8 @@ myLinkedList.append(16);
 myLinkedList.prepend(1);
 myLinkedList.insert(2, 24);
 console.log(myLinkedList.printList()) // [ 1, 10, 24, 5, 16 ]
-myLinkedList.remove(1); // remove 10
-console.log(myLinkedList.printList()) // [ 1, 24, 5, 16 ]
+// myLinkedList.remove(1); // remove 10
+// console.log(myLinkedList.printList()) // [ 1, 24, 5, 16 ]
+console.log(myLinkedList.reverse()) // [ 1, 24, 5, 16 ]
 
 // console.log(JSON.stringify(myLinkedList, null, 2))
